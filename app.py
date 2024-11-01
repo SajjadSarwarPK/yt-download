@@ -1,9 +1,8 @@
 from flask import Flask, request, jsonify
 from pytubefix import YouTube
-from pytubefix.exceptions import VideoUnavailable  # Import specific exceptions if needed
+from po_token import main
 
 app = Flask(__name__)
-
 
 # Get YouTube video link
 @app.route('/get_youtube_video_link', methods=['GET'])
@@ -14,8 +13,9 @@ def get_youtube_video_link():
         return jsonify({'error': 'video_link parameter is required'}), 400
 
     try:
+        main()
         # Get the URL of the YouTube video
-        yt = YouTube(name_filter, use_po_token=True)
+        yt = YouTube(name_filter, token_file='token.json')
 
         # Download the video
         video = yt.streams.get_highest_resolution()
