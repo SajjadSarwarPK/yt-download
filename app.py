@@ -15,7 +15,7 @@ def get_youtube_video_link():
     try:
         # run_script()
         # Get the URL of the YouTube video
-        yt = YouTube(name_filter, token_file='token.json')
+        yt = YouTube(name_filter, use_po_token=False, oauth_verifier=True, allow_oauth_cache=True)
 
         # Download the video
         video = yt.streams.get_highest_resolution()
