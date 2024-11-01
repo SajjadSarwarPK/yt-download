@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from pytubefix import YouTube
-from po_token import main
+from po_token import run_script
 
 app = Flask(__name__)
 
@@ -13,7 +13,7 @@ def get_youtube_video_link():
         return jsonify({'error': 'video_link parameter is required'}), 400
 
     try:
-        main()
+        # run_script()
         # Get the URL of the YouTube video
         yt = YouTube(name_filter, token_file='token.json')
 

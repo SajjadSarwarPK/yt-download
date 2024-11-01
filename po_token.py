@@ -39,5 +39,5 @@ async def send_handler(event: cdp.network.RequestWillBeSent):
     return
 
 
-if __name__ == '__main__':
-    loop().run_until_complete(main())
+def run_script():
+    asyncio.run(main())
