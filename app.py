@@ -22,7 +22,7 @@ def get_youtube_video_link():
     try:
         # run_script()
         # Get the URL of the YouTube video
-        yt = YouTube(name_filter, use_po_token=True, po_token_verifier=my_po_token_verifier, allow_oauth_cache=True)
+        yt = YouTube(name_filter, use_po_token=True, po_token_verifier=my_po_token_verifier, allow_oauth_cache=False)
 
         # Download the video
         video = yt.streams.get_highest_resolution()
