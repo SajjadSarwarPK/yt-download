@@ -28,7 +28,7 @@ def get_youtube_video_link():
     except VideoUnavailable:
         return jsonify({'error': 'The video is unavailable.'}), 404
     except Exception as e:
-        return jsonify({'error': str(e)}), 500
+        return jsonify({'error': str(e), "yt":str(yt)}), 500
 
 
 if __name__ == '__main__':
